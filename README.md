@@ -1,6 +1,6 @@
 # 4399Register
 
-![logo_384x](https://github.com/user-attachments/assets/17909227-aa0a-4242-9b77-b4639a069134)
+![logo_384x](https://github.com/user-attachments/assets/90ab389a-b270-426c-ae05-9000f761cd41)
 
 基于Python的纯协议4399全自动账号注册脚本
 
