@@ -50,8 +50,6 @@ def register_4399(usr, pwd):
         verify=False
     ).content
     captcha = ocr.classification(captcha_response)
-    if len(captcha) < 4:
-        captcha += randstr(captcha_strings, 4 - len(captcha))
     print(f"验证码识别 {captcha}", end=" | ")
 
     data = {
