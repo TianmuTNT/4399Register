@@ -100,6 +100,10 @@ def register_4399(usr, pwd):
             f.close()
     elif '身份证实名账号数量超过限制' in response:
         result = '身份证实名账号数量超过限制'
+    elif '身份证实名过于频繁' in response:
+        result = '身份证实名过于频繁'
+    elif '该姓名身份证提交验证过于频繁' in response:
+        result = '该姓名身份证提交验证过于频繁'
     elif '用户名已被注册' in response:
         result = '用户名已被注册'
     else:
