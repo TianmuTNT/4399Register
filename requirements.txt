@@ -1,0 +1,4 @@
+requests
+ddddocr
+# python <= 3.11 please use "kafka-python" package
+kafka-python-ng
