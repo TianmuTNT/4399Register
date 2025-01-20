@@ -14,6 +14,8 @@
 
 4. 唯一使用Python实现4399账号转Cookie功能的项目
 
+5. 只要你会用Kafka就可以轻松对接以及导入数据 (通过其他编程语言)
+
 ###  怎么用？
 
 1. 将项目克隆到本地
@@ -39,6 +41,8 @@
 [Mengke15](https://github.com/Mengke15)：提供本项目一些函数，项目吉祥物
 
 [zszfympx](https://github.com/zszfympx)：多线程领域糕手
+
+[cubewhy](https://github.com/cubewhy): 实现Kafka推送
 
 ### 免责声明
 
