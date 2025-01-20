@@ -14,7 +14,7 @@
 
 4. 唯一使用Python实现4399账号转Cookie功能的项目
 
-5. 只要你会用Kafka就可以轻松对接以及导入数据 (通过其他编程语言)
+5. 支持使用Kafka轻松对接以及导入数据（通过其他编程语言）
 
 ###  怎么用？
 
@@ -42,7 +42,7 @@
 
 [zszfympx](https://github.com/zszfympx)：多线程领域糕手
 
-[cubewhy](https://github.com/cubewhy): 实现Kafka推送
+[CubeWhy](https://github.com/cubewhy)：实现Kafka推送
 
 ### 免责声明
 
