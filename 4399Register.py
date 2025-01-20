@@ -140,7 +140,8 @@ def register_4399(usr, pwd):
 def push_kafka(result_list: list, producer: KafkaProducer):
     if producer is None:
         return # Kafka disabled
-    producer.send(topic='pineapple-reg', value=result_list)
+    producer.send(topic='pineapple-reg', value=result_list,  key="pineapple-reg")
+    producer.flush()
 
 def main():
     logging.info("2s后开始注册 按Ctrl+C结束程序")
@@ -151,6 +152,7 @@ def main():
         # Security warning: DO NOT open the kafka port, that will leak account info
         producer = KafkaProducer(
             bootstrap_servers=kafka_address,
+            key_serializer=lambda k: k.encode("utf-8"),
             value_serializer=lambda v: json.dumps(v).encode('utf-8')
         )
     except KafkaError as e:
