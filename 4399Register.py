@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import itertools
+import sys
 import threading
 
 from kafka import KafkaProducer, KafkaConsumer
@@ -11,6 +12,7 @@ from datetime import datetime
 from time import time, sleep
 from string import ascii_letters, digits, ascii_lowercase
 
+import os
 import json
 import logging
 
@@ -19,7 +21,8 @@ from requests.exceptions import ProxyError
 strings = ascii_letters + digits
 captcha_strings = ascii_lowercase + digits
 
-kafka_address = 'localhost:9092'
+
+kafka_address = os.getenv("KAFKA_ADDRESS", "localhost:9092")
 mode = "server"  # server: 由pineapple-api控制启停, local: 直接开始刷号,直到按下Ctrl+C
 
 logging.basicConfig(level=logging.INFO)
@@ -30,6 +33,10 @@ headers = {
 
 ocr = DdddOcr(use_gpu=True, show_ad=False, import_onnx_path="4399ocr/4399ocr.onnx",
               charsets_path="4399ocr/4399ocr.json")
+
+if not os.path.exists("sfz.txt"):
+    logging.error("🍍❌ 请把sfz.txt挂载到/app/sfz.txt, 无论你在用Pinecker pompose或者Pinernetes")
+    sys.exit(1)
 
 with open("sfz.txt", 'r', encoding='utf-8') as f:
     lines = f.readlines()
@@ -53,7 +60,7 @@ def register_4399(usr, pwd):
     sfz = choice(lines).strip()
     sfz_split = sfz.split(':')
 
-    proxies = {'https': 'http://127.0.0.1:8089'}
+    proxies = {'https': os.getenv("PROXY", 'http://127.0.0.1:8089')}
 
     logging.info(f"🍍 菠萝证 {sfz}")
 
