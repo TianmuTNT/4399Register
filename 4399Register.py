@@ -35,12 +35,12 @@ ocr = DdddOcr(use_gpu=True, show_ad=False, import_onnx_path="4399ocr/4399ocr.onn
               charsets_path="4399ocr/4399ocr.json")
 
 if not os.path.exists("config/sfz.txt"):
-    logging.error("🍍❌ 请把sfz.txt挂载到/app/sfz.txt, 无论你在用Pinecker pompose或者Pinernetes")
+    logging.error(os.getcwd())
+    logging.error("🍍❌ 请把sfz.txt挂载到/app/config/sfz.txt, 无论你在用Pinecker pompose或者Pinernetes")
     sys.exit(1)
 
 with open("config/sfz.txt", 'r', encoding='utf-8') as f:
     lines = f.readlines()
-    f.close()
 
 
 def randstr(chars, length):
@@ -130,7 +130,6 @@ def register_4399(usr, pwd):
         # not recommended
         # with open('accounts.txt', 'a') as f:
         #     f.write(f'{usr}:{pwd}\n')
-        #     f.close()
     elif '身份证实名账号数量超过限制' in response:
         result["msg"] = '身份证实名账号数量超过限制'
     elif '身份证实名过于频繁' in response:
