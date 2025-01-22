@@ -34,11 +34,11 @@ headers = {
 ocr = DdddOcr(use_gpu=True, show_ad=False, import_onnx_path="4399ocr/4399ocr.onnx",
               charsets_path="4399ocr/4399ocr.json")
 
-if not os.path.exists("sfz.txt"):
+if not os.path.exists("config/sfz.txt"):
     logging.error("🍍❌ 请把sfz.txt挂载到/app/sfz.txt, 无论你在用Pinecker pompose或者Pinernetes")
     sys.exit(1)
 
-with open("sfz.txt", 'r', encoding='utf-8') as f:
+with open("config/sfz.txt", 'r', encoding='utf-8') as f:
     lines = f.readlines()
     f.close()
 
