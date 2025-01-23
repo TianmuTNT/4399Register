@@ -142,8 +142,9 @@ def register_4399(usr, pwd):
         result["msg"] = '该姓名身份证提交验证过于频繁'
     elif '用户名已被注册' in response:
         result["msg"] = '用户名已被注册'
+    elif '不正确的真实姓名格式' in response:
+        result["msg"] = '不正确的真实姓名格式'
     else:
-        logging.error(response)
         result["msg"] = "未知的失败"
 
     if '验证码错误' in response:
