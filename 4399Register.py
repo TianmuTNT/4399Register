@@ -60,7 +60,11 @@ def register_4399(usr, pwd):
     sfz = choice(lines).strip()
     sfz_split = sfz.split(':')
 
-    proxies = {'https': os.getenv("PROXY", 'http://127.0.0.1:8089')}
+    proxy_address = os.getenv("PROXY")
+    if proxy_address is None:
+        proxies = {}
+    else:
+        proxies = {'https': proxy_address}
 
     logging.info(f"🍍 菠萝证 {sfz}")
 
@@ -139,6 +143,7 @@ def register_4399(usr, pwd):
     elif '用户名已被注册' in response:
         result["msg"] = '用户名已被注册'
     else:
+        logging.error(response)
         result["msg"] = "未知的失败"
 
     if '验证码错误' in response:
@@ -170,7 +175,7 @@ def bulk_register(count: int, producer: KafkaProducer, account_file):
             logging.info(f"🍍 {time_is()} [{i}] 尝试注册 {usr}:{pwd}")
             result = register_4399(usr, pwd)
             # write to file
-            if account_file is not None:
+            if account_file is not None and result['success']:
                 account_file.write(f'{result["username"]}:{result["password"]}\n')
             # Push to kafka
             cache.append(result)
