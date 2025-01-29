@@ -12,9 +12,7 @@
 
 3. 在搭配优秀的代理IP时，注册速度可达7200个/小时以上，保证账号供应速度
 
-4. 唯一使用Python实现4399账号转Cookie功能的项目
-
-5. 支持使用Kafka轻松对接以及导入数据（通过其他编程语言）
+4. 支持使用Kafka轻松对接以及导入数据（通过其他编程语言）
 
 ###  怎么用？
 
@@ -36,11 +34,7 @@
 
 [ImAlexBlock](https://github.com/ImAlexBlock)：4399验证码识别模型训练者，项目格式化贡献者，唯一正在使用该项目为用户免费提供账号的开发者（参见[此处](https://cookie.alexblock.org/)）
 
-[XNLawa](https://github.com/XNLawa)：转换Cookie模块的贡献者
-
 [Mengke15](https://github.com/Mengke15)：提供本项目一些函数，项目吉祥物
-
-[zszfympx](https://github.com/zszfympx)：多线程领域糕手
 
 [CubeWhy](https://github.com/cubewhy)：实现Kafka推送
 
